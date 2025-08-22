@@ -1,21 +1,29 @@
+// 간단한 로그인 모듈 (바닐라 JS)
+
+// 더미 계정
 const dummyUser = {
   username: "admin",
   password: "1234"
 };
 
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // 폼 제출 시 새로고침 방지
+const form = document.querySelector("#loginForm");
+const message = document.querySelector("#message");
 
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const message = document.getElementById("message");
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const username = document.querySelector("#username").value.trim();
+  const password = document.querySelector("#password").value.trim();
+
+  // 초기화 (클래스 제거)
+  message.className = "";
 
   if (username === dummyUser.username && password === dummyUser.password) {
-    message.style.color = "green";
-    message.textContent = "로그인 성공!";
-    // 여기서 다른 페이지로 이동 가능
+    message.classList.add("success");
+    message.textContent = "✅ 로그인 성공!";
     // window.location.href = "dashboard.html";
   } else {
-    message.style.color = "red";
-    message.textContent = "아이디 또는 비밀번호가 올바르지 않습니다.";
-  }});
+    message.classList.add("error");
+    message.textContent = "❌ 아이디 또는 비밀번호가 올바르지 않습니다.";
+  }
+});

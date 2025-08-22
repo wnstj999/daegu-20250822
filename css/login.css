@@ -2,14 +2,14 @@
 body {
   margin: 0;
   font-family: 'Pretendard', 'Segoe UI', Tahoma, sans-serif;
-  background: linear-gradient(135deg, #667eea, rgb(40, 204, 182));
+  background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-/* 로그인 영역 래퍼 */
+/* 로그인 래퍼 */
 .login-wrapper {
   display: flex;
   justify-content: center;
@@ -17,45 +17,57 @@ body {
   width: 100%;
 }
 
-/* Glassmorphism 스타일 */
+/* Glassmorphism 컨테이너 */
 .login-container {
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  padding: 2.5rem;
+  backdrop-filter: blur(16px);
+  padding: 3rem 2.5rem;
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-  width: 320px;
+  width: 350px;
   text-align: center;
-  color: white;
   animation: fadeIn 1s ease-in-out;
 }
 
+/* 제목 */
 .login-container h2 {
-  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  letter-spacing: 1px;
+  margin-bottom: 2rem;   /* 제목과 입력창 사이 넉넉히 */
+  color: rgb(168, 45, 127);
 }
 
-/* 입력 필드 */
+/* 입력 그룹 */
 .input-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
+/* 입력창 */
 .login-container input {
   width: 100%;
-  padding: 12px;
+  padding: 14px 16px;
   border: none;
   border-radius: 12px;
   outline: none;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.8);
+  font-family: inherit;
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* placeholder */
+.login-container input::placeholder {
+  color: #888;
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 /* 버튼 */
 button {
   width: 100%;
-  padding: 12px;
-  margin-top: 1rem;
+  padding: 14px;
+  margin-top: 0.8rem;
   border: none;
   background: linear-gradient(135deg, #ff9966, #ff5e62);
   color: white;
@@ -63,38 +75,50 @@ button {
   border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
+  letter-spacing: 0.5px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
 
 /* 메시지 */
 #message {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #ffdede;
+  margin-top: 1.5rem;   /* 버튼과의 간격 확보 */
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-family: inherit;
+  min-height: 1.2rem;   /* 메시지 없을 때 높이 확보 */
+}
+
+/* 상태별 메시지 색상 */
+#message.success {
+  color: #28a745;
+  font-weight: bold;
+}
+#message.error {
+  color: #1d0707;
+  font-weight: bold;
 }
 
 /* 회원가입 안내 */
 .signup-text {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   font-size: 0.9rem;
+  color: #ddd;
 }
-
 .signup-text a {
   color: #ffeb3b;
   text-decoration: none;
   font-weight: bold;
 }
-
 .signup-text a:hover {
   text-decoration: underline;
 }
 
-/* 등장 애니메이션 */
+/* 애니메이션 */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
